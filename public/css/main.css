@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import "tailwindcss";
+
+body {
+    background:#53A2BE;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1, h2 {
+    background-color: #F45CA1;
+    color: #0B3954;
+    font-family: "Righteous", monospace;
+}
+
+p, label {
+    color: #710627;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+button {
+    background-color: #F45CA1;
+    font-weight: bolder;
+    color: #0B3954;
+}
+
+form {
+    border: #9E1946 7px solid;
+    padding: 10px;
+}
+
+table, tr, th {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: #9E1946 2px solid;
+}
+
+th, td {
+    padding: 10px;
+    color: #0B3954;
+    font-family: Arial, sans-serif;
+}
+
+#ps4label {
+    color: blue;
+}
+
+#xboxonelabel {
+    color: green;
+}
+
+#switchlabel {
+    color: red;
+}
+
+.contentbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentgrid {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 40% 60%;
+}
+
+#gamename, #rating, #gamestartdate, #gameenddate {
+    color: #710627;
+    font-family: sans-serif;
+}
+
+.description {
+    text-align: center;
+}
+.flashy {
+    border: #0B3954 6px dotted;
+}

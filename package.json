@@ -1,0 +1,25 @@
+{
+  "name": "a3-zmedailleu",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs4241-c25/a3-zmedailleu.git"
+  },
+  "author": "Zachary Medailleu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs4241-c25/a3-zmedailleu/issues"
+  },
+  "homepage": "https://github.com/cs4241-c25/a3-zmedailleu#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "tailwindcss": "^4.0.5"
+  }
+}
