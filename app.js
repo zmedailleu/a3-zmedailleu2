@@ -40,11 +40,11 @@ app.use('/', (req, res, next) => {
 });
 
 // app.get("/", (req, res) => {
-//     res.sendFile(join(__dirname, "public", "login.html"));
+//     res.sendFile(join(__dirname, "public", "index.html"));
 // });
 
-app.get("/login", (req, res) => {
-    res.sendFile(join(__dirname, "public", "login.html"));
+app.get("/home", (req, res) => {
+    res.sendFile(join(__dirname, "public", "gametracker.html"));
 });
 
 

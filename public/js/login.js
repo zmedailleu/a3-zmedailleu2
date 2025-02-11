@@ -14,7 +14,7 @@ async function logIn(event) {
     for (let i = 0; i < data.length; i++) {
         if (username === data[i].username && password === data[i].password) {
             localStorage.setItem("currentUser", username);
-            location.href = "../";
+            location.href = "/home";
         }
     }
 

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset="utf-8">
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<h1>Game Completion Tracker</h1>
+<p class="description">If you play video games a lot, it starts to become easy to lose track of everything you've played. This site will save a list of all the games you've played so that you can look back on them later and reminisce about all the fun you had.</p>
+<div class="contentgrid">
+    <div class="contentbox">
+        <h2 class="flashy bg-white">Enter Game Information Here</h2>
+        <form id="gameform">
+            <label for="gamename">Name: </label><br>
+            <input type="text" id="gamename" name="name" value="enter game here"><br><br>
+
+            <label>Platform</label><br>
+            <input type="radio" id="ps4" name="platform" value="PS4">
+            <label for="ps4" id="ps4label">PS4</label><br>
+            <input type="radio" id="ps5" name="platform" value="PS5">
+            <label for="ps5">PS5</label><br>
+            <input type="radio" id="xboxone" name="platform" value="XBox One">
+            <label for="xboxone" id="xboxonelabel">XBox One</label><br>
+            <input type="radio" id="seriesx" name="platform" value="XBox Series X">
+            <label for="seriesx">XBox Series X</label><br>
+            <input type="radio" id="switch" name="platform" value="Nintendo Switch">
+            <label for="switch" id="switchlabel">Nintendo Switch</label><br>
+            <input type="radio" id="pc" name="platform" value="PC">
+            <label for="pc">PC</label><br>
+            <input type="radio" id="other" name="platform" value="Other">
+            <label for="other">Other</label><br><br>
+
+            <label for="gamestartdate">Date Started: </label><br>
+            <input type="date" id="gamestartdate" name="startdate" value="2025-01-01" min="2010-01-02" max="2030-12-31"><br><br>
+
+            <label for="gameenddate">Date of Completion: </label><br>
+            <input type="date" id="gameenddate" name="completiondate" value="2025-01-31" min="2010-01-02" max="2030-12-31"><br><br>
+
+            <label for="rating">Rating out of 10</label><br>
+            <select id="rating" name="rating">
+                <option value="1/10">1/10</option>
+                <option value="2/10">2/10</option>
+                <option value="3/10">3/10</option>
+                <option value="4/10">4/10</option>
+                <option value="5/10">5/10</option>
+                <option value="6/10">6/10</option>
+                <option value="7/10">7/10</option>
+                <option value="8/10">8/10</option>
+                <option value="9/10">9/10</option>
+                <option value="10/10">10/10</option>
+
+            </select><br><br>
+
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="contentbox">
+        <h2 class="flashy">Games Entered</h2>
+
+        <table id="gametable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Platform</th>
+                <th>Date Started</th>
+                <th>Date of Completion</th>
+                <th>Rating</th>
+                <th>Days Played</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id="tabledata">
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
