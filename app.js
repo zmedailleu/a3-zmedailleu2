@@ -5,16 +5,12 @@ const app = express();
 app.listen(process.env.PORT || 3000);
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://zjmedailleu:MonkeyBongos81@cluster0.0hnjk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-//const uri = "mongodb://localhost:27017/";
 const client = new MongoClient(uri);
 
 let collection = null;
 let users = null;
 
 
-
-//const appdata = [];
-let printDummy;
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -39,10 +35,6 @@ app.use('/', (req, res, next) => {
     next();
 });
 
-// app.get("/", (req, res) => {
-//     res.sendFile(join(__dirname, "public", "index.html"));
-// });
-
 app.get("/home", (req, res) => {
     res.sendFile(join(__dirname, "public", "gametracker.html"));
 });
@@ -60,23 +52,11 @@ app.get('/getusers', async (req, res) => {
     res.json(appdata);
 });
 
-
-app.get('/display', async (req, res) => {
-    const results = await collection.find({}).toArray();
-    console.log(results);
-    let body = `<html><body><h1>Cars Data</h1>${JSON.stringify(results)}</body></html>`;
-    res.send(body);
-})
-
 app.post('/submit', async (req, res) => {
     let data = req.body;
-    //const user = JSON.parse(window.localStorage.getItem("currentUser"));
-    //data.user = window.localStorage.getItem("currentUser");
+
     const newData = await collection.insertOne(data);
     res.json(data);
-    // appdata.push(data);
-    //
-    // res.json(data);
 
 });
 
