@@ -28,8 +28,4 @@ async function getUsers() {
 }
 
 
-
-// document.getElementById('loginbutton').onclick = function () {
-//     console.log("clicked!!!!!!!!!!!!!");
-// };
 document.getElementById('loginbutton').onclick = logIn;

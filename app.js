@@ -86,6 +86,12 @@ app.post('/delete/:id', (req, res) => {
     const newData = collection.deleteOne({_id: new ObjectId(id)});
 
     res.json(newData);
+});
 
+app.put('/modify/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
 
+    await collection.updateOne({ _id: new ObjectId(id) }, {$set: data});
+    res.json(data);
 });

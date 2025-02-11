@@ -62,6 +62,7 @@ async function getAllData() {
             `<td>` + row.rating + `</td>`;
         table.appendChild(singlerow);
         calculateDaysPlayed(singlerow);
+        addModifyButton(singlerow, row);
         addDeleteButton(singlerow, row._id);
     });
 
@@ -89,6 +90,16 @@ function addDeleteButton(row, position) {
     row.appendChild(newData);
 }
 
+function addModifyButton(row, rowData) {
+
+    const newData = document.createElement("td");
+    const modifyButton = document.createElement("button");
+    modifyButton.textContent = "Modify";
+    modifyButton.onclick = function() {modifyRow(row, rowData)};
+    newData.appendChild(modifyButton);
+    row.appendChild(newData);
+}
+
 //Delete a row of the table when it's respective button is clicked
 async function deleteRow(position) {
     const response = await fetch( `/delete/${position}`, {
@@ -96,6 +107,40 @@ async function deleteRow(position) {
     });
 
     refreshData();
+}
+
+async function modifyRow(row, rowData) {
+    row.innerHTML = `
+    <td><input type="text" value="${rowData.name}" id="name-input"></td>
+    <td><input type="text" value="${rowData.platform}" id="platform-input"></td>
+    <td><input type="date" value="${rowData.startdate}" id="startdate-input"></td>
+    <td><input type="date" value="${rowData.completiondate}" id="completiondate-input"></td>
+    <td><input type="text" value="${rowData.rating}" id="rating-input"></td>
+    <td</td>
+    <td><button onclick="saveChanges('${rowData._id}')">Save</button></td>
+    `;
+}
+
+async function saveChanges(id) {
+    const updatedData = {
+        name: document.getElementById("name-input").value,
+        platform: document.getElementById("platform-input").value,
+        startdate: document.getElementById("startdate-input").value,
+        completiondate: document.getElementById("completiondate-input").value,
+        rating: document.getElementById("rating-input").value
+    };
+
+    const response = await fetch(`/modify/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData)
+    });
+
+    if (response.ok) {
+        refreshData(); // Reload the table with updated data
+    } else {
+        console.error("Failed to update the data");
+    }
 }
 
 //Calculate how many days it took for someone to complete a game based on the day they started and the date they completed it

@@ -4,32 +4,35 @@
     <title>CS4241 Assignment 2</title>
     <meta charset="utf-8">
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="description" content="A method of tracking what video games you play.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- get rid of favicon error -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
-<body>
+<body class="d-flex flex-column align-items-center bg-light">
 <h1>Game Completion Tracker</h1>
 <p class="description">If you play video games a lot, it starts to become easy to lose track of everything you've played. This site will save a list of all the games you've played so that you can look back on them later and reminisce about all the fun you had.</p>
-<div class="contentgrid">
-    <div class="contentbox">
-        <h2 class="flashy bg-white">Enter Game Information Here</h2>
+<div class="row">
+    <div class="d-flex flex-column align-items-center col-md-5">
+        <h2 class="flashy">Enter Game Information Here</h2>
         <form id="gameform">
             <label for="gamename">Name: </label><br>
             <input type="text" id="gamename" name="name" value="enter game here"><br><br>
 
             <label>Platform</label><br>
             <input type="radio" id="ps4" name="platform" value="PS4">
-            <label for="ps4" id="ps4label">PS4</label><br>
+            <label for="ps4">PS4</label><br>
             <input type="radio" id="ps5" name="platform" value="PS5">
             <label for="ps5">PS5</label><br>
             <input type="radio" id="xboxone" name="platform" value="XBox One">
-            <label for="xboxone" id="xboxonelabel">XBox One</label><br>
+            <label for="xboxone">XBox One</label><br>
             <input type="radio" id="seriesx" name="platform" value="XBox Series X">
             <label for="seriesx">XBox Series X</label><br>
             <input type="radio" id="switch" name="platform" value="Nintendo Switch">
-            <label for="switch" id="switchlabel">Nintendo Switch</label><br>
+            <label for="switch">Nintendo Switch</label><br>
             <input type="radio" id="pc" name="platform" value="PC">
             <label for="pc">PC</label><br>
             <input type="radio" id="other" name="platform" value="Other">
@@ -59,10 +62,10 @@
             <button>Submit</button>
         </form>
     </div>
-    <div class="contentbox">
+    <div class="d-flex flex-column align-items-center col-md-7">
         <h2 class="flashy">Games Entered</h2>
 
-        <table id="gametable">
+        <table id="gametable" class="table">
             <thead>
             <tr>
                 <th>Name</th>
@@ -71,6 +74,7 @@
                 <th>Date of Completion</th>
                 <th>Rating</th>
                 <th>Days Played</th>
+                <th>Modify</th>
                 <th>Delete</th>
             </tr>
             </thead>
