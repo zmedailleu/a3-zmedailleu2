@@ -12,6 +12,8 @@ const submit = async function( event ) {
     const object = {};
     formData.forEach(function(value, key){
         object[key] = value; });
+    //attach user to data
+    object.user = window.localStorage.getItem("currentUser");
     const body = JSON.stringify( object );
     console.log(object);
 
@@ -44,9 +46,11 @@ window.onload = function() {
     button.onclick = submit;
 }
 
+
 //Get all data from the server to display on the client site
 async function getAllData() {
-    const response = await fetch( "/getdata");
+    const currentUser = window.localStorage.getItem("currentUser");
+    const response = await fetch( `/getdata?user=${currentUser}`);
     const data = await response.json();
     const table = document.getElementById("tabledata");
     data.forEach(function(row) {
@@ -58,7 +62,7 @@ async function getAllData() {
             `<td>` + row.rating + `</td>`;
         table.appendChild(singlerow);
         calculateDaysPlayed(singlerow);
-        addDeleteButton(singlerow, row.gameID);
+        addDeleteButton(singlerow, row._id);
     });
 
 }
